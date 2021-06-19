@@ -1,0 +1,6 @@
+<p>Dark-Vador: Je suis ton Père !!!</p>
+<p *ngIf="rep">{{rep}}</p>
+<app-test2 (evenement)="reponse($event)"></app-test2>
+<app-test2 parametre="Leia"></app-test2>
+<app-test2 parametre="Yoda"></app-test2>
+<app-test2 [parametre]="kice"></app-test2>

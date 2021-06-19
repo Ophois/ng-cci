@@ -1,0 +1,39 @@
+<form [formGroup]="profileForm" (ngSubmit)="valider()">
+  <div>
+    <label for="firstname">Nom: </label>
+    <input id="firstname" type="text" formControlName="firstName">
+    <span *ngIf="profileForm.controls['firstName'].invalid
+    && profileForm.controls['firstName'].touched">champs invalide...</span>
+    <div>Invalide: {{ profileForm.controls['firstName'].invalid }}</div>
+    <div>Valide: {{ profileForm.controls['firstName'].valid }}</div>
+    <div>Touché: {{ profileForm.controls['firstName'].touched }}</div>
+    <div>Non touché: {{ profileForm.controls['firstName'].untouched }}</div>
+    <div>Non modifié: {{ profileForm.controls['firstName'].pristine }}</div>
+    <div>Modifié: {{ profileForm.controls['firstName'].dirty }}</div>
+    <div>Erreurs: {{ profileForm.controls['firstName'].errors | json }}</div>
+  </div>
+  <div>
+    <label for="lastname">Prénom: </label>
+    <!-- blur = perte du focus -->
+    <input id="lastname" type="text" formControlName="lastName" #lastName (blur)="verifAge(lastName.value)">
+    <div *ngIf="ageEstime" id="info">Nous avons estimé votre age à {{ ageEstime  }} ans ;-)</div>
+  </div>
+  <!-- ajouter l'age entre 18 et 77 ans -->
+  <div>
+    <label>Age: </label>
+    <input type="number" formControlName="age">
+    <div *ngIf="profileForm.controls['age'].errors.required">ce champs est obligatoire.</div>
+    <div *ngIf="profileForm.controls['age'].errors.min">Vous devez avoir plus de 18 ans.</div>
+    <div *ngIf="profileForm.controls['age'].errors.max">Vous devez avoir moins de 77 ans.</div>
+    <div>{{ profileForm.controls['age'].errors | json }}</div>
+  </div>
+
+  <p>Complete the form to enable button.</p>
+  <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+</form>
+
+<p>Form Value: {{ profileForm.value | json }}</p>
+
+<p>Form Status: {{ profileForm.valid }}</p>
+<p>Form Status: {{ profileForm.status }}</p>
+<p>Proverbe du jour: {{ proverbe }}</p>

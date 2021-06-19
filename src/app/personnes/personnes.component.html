@@ -1,0 +1,5 @@
+<h1>Personnes</h1>
+
+<div *ngFor="let p of personnes; let i = index">
+  <app-fiche [user]="p" [idx]="i" (evenement)="appel($event)"></app-fiche>
+</div>

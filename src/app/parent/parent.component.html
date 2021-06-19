@@ -1,0 +1,6 @@
+<p>D.V.: Je suis ton père !!!</p>
+<p *ngIf="rep">{{ rep }}</p>
+<app-enfant (evenement)=reponse($event)></app-enfant>
+<app-enfant parametre="Leia"></app-enfant>
+<app-enfant parametre="Yoda"></app-enfant>
+<app-enfant [parametre]="kice"></app-enfant>

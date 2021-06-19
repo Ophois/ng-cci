@@ -1,0 +1,41 @@
+.ok
+{
+  background: var(--app-danger);
+  color: white;
+}
+.nok {
+  background: var(--app-sucess);
+  color: black;
+}
+table{
+  border-collapse: collapse;
+}
+.pair
+{
+  background: var(--app-background);
+}
+nav {
+  border: 1px solid black;
+  width: 99%;
+  ul {
+    list-style-type: none;
+    text-align: center;
+    li {
+      display: inline-block;
+      margin-right: 5px;
+      a {
+        text-decoration: none;
+        border: 1px solid black;
+        color: black;
+        padding: 5px;
+        border-radius: 5px;
+        box-shadow: 8px 8px 8px silver;
+        &:hover{
+          background: black;
+          color: white;
+          box-shadow: 8px 8px 8px var(--app-primary);
+        }
+      }
+    }
+  }
+}

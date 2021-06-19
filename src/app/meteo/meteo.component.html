@@ -1,0 +1,15 @@
+<form [formGroup]="monForm" (ngSubmit)="recherche()">
+  <div>
+    <label>Ville: </label>
+    <input type="text" formControlName="ville">
+  </div>
+  <input type="submit" [disabled]="!monForm.valid" value="Rechercher">
+</form>
+
+<!-- Affichage de la liste des villes retournées par l'API GEO-->
+<div *ngIf="resultat">
+<!--<pre>{{ resultat | json }}</pre>-->
+<ul>
+  <li *ngFor="let v of resultat;" (click)="selection(v)">{{ v.nom }} ({{ v.departement.nom }} - {{ v.departement.code}})</li>
+</ul>
+</div>

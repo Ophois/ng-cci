@@ -1,0 +1,12 @@
+input.ng-invalid{
+ background: red
+}
+input.ng-valid{
+  background: lime;
+}
+#info {
+  border: 1px solid var(--app-primary);
+  padding: var(--app-padding);
+  font-size: 1.1em;
+}
+
