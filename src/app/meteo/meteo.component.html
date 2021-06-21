@@ -13,3 +13,10 @@
   <li *ngFor="let v of resultat;" (click)="selection(v)">{{ v.nom }} ({{ v.departement.nom }} - {{ v.departement.code}})</li>
 </ul>
 </div>
+
+<div *ngIf="myMeteo">
+ <h3>Température: {{ myMeteo.current.temp }}°C</h3>
+ <h3>Pression: {{ myMeteo.current.pressure }} hPa</h3>
+ <h3>Temps: {{ myMeteo.current.weather[0].description }}</h3>
+ <img src="http://openweathermap.org/img/wn/{{ myMeteo.current.weather[0].icon }}@2x.png">
+</div>

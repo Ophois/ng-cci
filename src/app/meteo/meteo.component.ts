@@ -41,5 +41,5 @@ export class MeteoComponent implements OnInit {
       this.myMeteo = retour;
     });
   }
-
 }
+// https://github.com/Ophois/ng-cci.git
