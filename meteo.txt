@@ -1,0 +1,20 @@
+
+ng generate component meteo (ou ng g c meteo)
+ng generate service meteo (ou ng g s meteo)
+
+1. Créer une route météo et le lien dans la navigation (app.routingModule.ts + app.component.html)
+
+2. Créer un composant météo:
+- formulaire de saisie d'une ville
+- affichage d'une liste de villes retournées par l'API
+- Affichage de la météo de la ville choisie
+
+3. Créer un service météo:
+- appel de l'api GEO pour récupérer une liste de villes en fonction du nom
+- appel de l'api openweathermap pour récupérer la météo de la ville choisie (en fonction de lat et lng)
+
+Exemple
+https://geo.api.gouv.fr/communes?nom=Nantes&fields=centre
+
+https://api.openweathermap.org/data/2.5/onecall?lat=44.9208&lon=5.8272
+&appid=d2e33b810d399f2fb3d6791d161388ec&exclude=hourly,minutely&units=metric&lang=fr

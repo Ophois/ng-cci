@@ -7,15 +7,23 @@ import { MeteoService } from '../meteo.service';
   templateUrl: './meteo.component.html',
   styleUrls: ['./meteo.component.scss']
 })
+
 export class MeteoComponent implements OnInit {
+
   monForm!: any;
   resultat!:any;
   myMeteo!:any;
 
-  // constructeur. Injection du service FormBuilder pour gérer le formulaire
+  /**
+  * Constructeur. Injection du service FormBuilder pour gérer le formulaire
+  * @param FormBuilder fb Service FormBuilder pour les formulaires
+  * @param MeteoService meteoSvc Service de recherche de coordonnées GPS et de météo
+  */
   constructor(private fb: FormBuilder, private meteoSvc: MeteoService) { }
 
-  // création du formulaire + validation du champs
+  /**
+   * Création du formulaire + validation du champs.
+   */
   ngOnInit(): void {
     this.monForm = this.fb.group({
       //champs obligatoire + minimum 2 caractères
@@ -23,7 +31,9 @@ export class MeteoComponent implements OnInit {
     });
   }
 
-  //fonction de recherche de la liste des villes en fonction du formulaire
+  /**
+   * Fonction de recherche de la liste des villes en fonction du formulaire.
+   */
   recherche() {
     //console.log(this.monForm.value.ville);
     //appel du service meteo pour récupérer la liste des villes correspondant
@@ -31,9 +41,18 @@ export class MeteoComponent implements OnInit {
       //console.log(data);
       this.resultat = data;
     });
+
+    // appel de la méthode users du service pour récupérer les
+    // enregistrements dans json-server
+    this.meteoSvc.users().subscribe((truc) => {
+      console.log(truc)
+    });
   }
 
-  //fonction de sélection d'une ville (+ recherche météo)
+  /**
+   * Fonction de sélection d'une ville (+ recherche météo).
+   * @param any nomville objet ville pour affichage de la météo.
+   */
   selection(nomVille:any) {
     //console.log(nomVille);
     this.meteoSvc.agp(nomVille).subscribe((retour:any) => {

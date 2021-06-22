@@ -32,5 +32,8 @@ export class MeteoService {
     return this.http.get(this.url2 + '&lat=' + lat + '&lon=' + lng);
   }
 
+  users() {
+    return this.http.get('http://localhost:3000/users');
+  }
 
 }
